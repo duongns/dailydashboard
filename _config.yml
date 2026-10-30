@@ -1,0 +1,9 @@
+title: Daily Dashboard
+# OAuth Client ID is public client configuration, NOT a secret.
+google_client_id: "857896366624-pkaubd5cscm66i0405n4mjcvb4epn1ch.apps.googleusercontent.com"
+url: ""
+baseurl: ""
+plugins: []
+exclude:
+  - README.md
+  - .github

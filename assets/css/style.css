@@ -1,0 +1,95 @@
+:root{
+  --ink:#17324d;--muted:#71869d;--blue:#2f83d5;--blue2:#dcecf6;
+  --paper:#f7f6f1;--card:#fffefa;--line:#e5e9ec;--shadow:0 8px 26px rgba(36,65,91,.08);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif}
+button{font:inherit;cursor:pointer}
+.dashboard{width:min(100% - 32px,1050px);margin:28px auto 24px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 10px 22px}
+.brand{display:flex;align-items:center;gap:18px;min-width:0}
+.logo{width:66px;height:52px;flex:none}
+.brandline{height:48px;width:1px;background:#8da0b1}
+.greeting h1{font-size:clamp(20px,3vw,29px);margin:0 0 4px;font-weight:650}
+.greeting p,.today-date small{margin:0;color:var(--muted)}
+.today-date{text-align:right;white-space:nowrap}
+.today-date strong{display:block;font-size:22px;margin-top:4px}
+.weather-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px;margin-bottom:16px}
+.weather-card{min-height:290px;border-radius:24px;padding:22px 24px;background:linear-gradient(145deg,#4b9bdd,#2779c6);color:white;box-shadow:var(--shadow);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}
+.weather-card:after{content:"";position:absolute;left:-5%;right:-5%;bottom:-48px;height:112px;background:linear-gradient(160deg,transparent 15%,rgba(16,91,153,.22) 16% 42%,rgba(11,70,121,.35) 43% 68%,rgba(9,56,98,.48) 69%);border-radius:50% 50% 0 0}
+.weather-card>*{position:relative;z-index:1}
+.weather-kicker{display:inline-flex;align-items:center;gap:8px;border:1px solid #ffffff70;background:#1e69a966;padding:7px 13px;border-radius:30px;width:max-content;font-weight:600}
+.weather-main{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.temp{font-size:clamp(48px,7vw,78px);font-weight:700;letter-spacing:-3px;line-height:1}
+.temp span{font-size:.53em;font-weight:500;letter-spacing:-1px}
+.condition{font-size:20px;margin-top:12px}
+.weather-meta{font-size:16px;margin-top:10px;opacity:.95}
+.weather-icon{font-size:clamp(64px,9vw,100px);filter:drop-shadow(0 5px 5px #164d7830)}
+.forecast-card{border-radius:24px;background:linear-gradient(150deg,#f5fbff,#eaf3f7);box-shadow:var(--shadow);padding:20px 16px;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.forecast-card .day{font-size:18px;font-weight:650}
+.forecast-card .date{color:var(--muted);margin-top:5px}
+.forecast-card .icon{font-size:54px;text-align:center;margin:10px 0}
+.forecast-card .forecast-temp{font-size:21px;font-weight:650;white-space:nowrap}
+.forecast-card .forecast-temp span{font-weight:400;color:var(--muted)}
+.forecast-card .desc{margin-top:8px}
+.forecast-card .rain{color:var(--muted);margin-top:8px}
+.panel{background:var(--card);border-radius:24px;padding:22px 28px;box-shadow:var(--shadow);margin-bottom:16px}
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:16px}
+.panel-title{display:flex;align-items:center;gap:14px;font-size:27px;font-weight:700}
+.panel-title .symbol{font-size:30px}
+.month-controls{display:flex;gap:8px}
+.month-controls button,.icon-button{border:0;background:transparent;color:var(--ink);font-size:27px;padding:3px 8px;border-radius:10px}
+.month-controls button:hover,.icon-button:hover{background:#edf4f8}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;gap:4px}
+.weekday{color:var(--muted);font-weight:600;padding:8px 0}
+.day-cell{height:47px;display:grid;place-items:center;border-radius:50%;font-size:17px;max-width:47px;width:100%;margin:auto}
+.day-cell.muted{color:#a6b4c1}
+.day-cell.today{background:var(--blue);color:white;font-weight:700;box-shadow:0 5px 12px #2f83d544}
+.day-cell.has-event:after{content:"";width:4px;height:4px;background:#5a9bd2;border-radius:50%;position:absolute;margin-top:30px}
+.day-cell{position:relative}
+.tasks-head{margin-bottom:12px}
+.connection{display:flex;align-items:center;gap:10px}
+.status{font-size:13px;color:var(--muted)}
+.primary{background:var(--ink);color:white;border:0;border-radius:24px;padding:10px 16px;font-weight:600}
+.primary:hover{background:#285273}
+.primary:disabled{opacity:.6;cursor:wait}
+.task-list{display:flex;flex-direction:column}
+.event-month{font-size:17px;font-weight:750;color:var(--ink);padding:10px 0 8px}
+.event-day{display:grid;grid-template-columns:56px minmax(0,1fr);gap:10px;padding:10px 0 14px;border-bottom:1px solid var(--line)}
+.event-day:last-child{border-bottom:0}
+.event-date-col{display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:1px}
+.event-weekday{font-size:12px;line-height:1.15;font-weight:500;color:var(--muted);text-align:center;white-space:nowrap}
+.task-date{font-size:23px;line-height:1.1;font-weight:500;color:#171b20;text-align:center;white-space:nowrap}
+.event-items{min-width:0;display:flex;flex-direction:column;justify-content:center;gap:9px;padding:3px 0}
+.task-row{display:flex;align-items:center;min-width:0;padding:0}
+.task-pill{display:flex;align-items:center;gap:9px;min-width:0;color:var(--ink)}
+.task-pill.event,.task-pill.todo{background:transparent;color:var(--ink)}
+.task-check{display:none}
+.task-name-wrap{min-width:0}
+.task-name{font-size:15px;line-height:1.35;overflow-wrap:anywhere;color:#171b20}
+.task-time{color:var(--muted);font-size:11px;line-height:1.2;margin-top:3px}
+.empty{color:var(--muted);padding:20px 4px}
+.note{text-align:right;color:#547b9f;font-style:italic;margin-top:6px}
+.footer-art{height:88px;margin-top:-8px;overflow:hidden;position:relative;opacity:.85}
+.footer-art svg{width:100%;height:100%}
+.settings{margin-top:14px;font-size:13px;color:var(--muted);text-align:center}
+.settings input{max-width:390px;width:100%;padding:9px 11px;border:1px solid #d7e0e7;border-radius:9px;margin:6px}
+.settings details{display:inline-block;text-align:left}
+.toast{font-size:13px;color:#9a5b2c;min-height:18px;margin-top:8px}
+@media(max-width:700px){
+ .dashboard{width:min(100% - 20px,520px);margin:14px auto}
+ .topbar{margin:0 4px 15px}.logo{width:48px}.brand{gap:10px}.brandline{height:40px}
+ .today-date strong{font-size:16px}.today-date small{font-size:11px}
+ .weather-grid{grid-template-columns:1fr 1fr;gap:9px}
+ .weather-card{grid-column:1/-1;min-height:205px;padding:17px 19px}
+ .forecast-card{min-height:190px;padding:15px 12px}
+ .forecast-card .icon{font-size:42px;margin:5px 0}
+ .forecast-card .day{font-size:15px}.forecast-card .forecast-temp{font-size:17px}
+ .panel{padding:17px 15px;border-radius:19px}
+ .panel-title{font-size:21px;gap:8px}.panel-title .symbol{font-size:24px}
+ .day-cell{height:39px;font-size:15px;max-width:39px}
+ .event-day{grid-template-columns:56px minmax(0,1fr);gap:10px;padding:9px 0 12px}
+ .event-weekday{font-size:12px}.task-date{font-size:22px}
+ .task-name{font-size:14px}.task-time{font-size:11px}
+}
+@media(min-width:900px){.dashboard{width:min(100% - 48px,1120px)}}
